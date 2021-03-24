@@ -5,7 +5,7 @@
 
 <script>
 
-import { QrcodeStream } from 'vue-qrcode-reader'
+import { QrcodeStream } from 'vue3-qrcode-reader'
 
 
 export default {
