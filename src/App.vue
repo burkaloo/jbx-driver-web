@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <QrcodeStream @decode="onDecode"></QrcodeStream>
+  <qrcode-stream @decode="onDecode"></qrcode-stream>
 </template>
 
 <script>
