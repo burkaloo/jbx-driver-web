@@ -20,6 +20,7 @@
 
 <script>
 import { QrcodeStream } from 'vue3-qrcode-reader'
+import axios from 'axios'
 export default {
   name: 'scanner',
   components:{
@@ -33,8 +34,17 @@ export default {
     }
   },
   props: {
-
+    baseurl:String
   },
+  watch:{
+    camera(newval){
+      if(newal == "off"){
+        this.$emit('loadon')
+      } else {
+        this.$emit('loadoff')
+      }
+    }
+  }
   methods:{
     onInit (promise) {
       promise
