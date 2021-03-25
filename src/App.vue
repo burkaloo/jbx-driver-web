@@ -37,7 +37,7 @@ export default {
       user: null,
       page: "login",
       spinner: false,
-      baseurl: "http://james.local/jbx/backend/",
+      baseurl: "https://shiplabel.navitag.net/vercel-test",
     }
   },
   created(){
