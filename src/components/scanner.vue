@@ -44,7 +44,7 @@ export default {
         this.$emit('loadoff')
       }
     }
-  }
+  },
   methods:{
     onInit (promise) {
       promise
