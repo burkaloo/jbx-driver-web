@@ -52,7 +52,7 @@ export default {
 
       // pretend it's taking really long
       await this.timeout(3000)
-      this.isValid = content.startsWith('http')
+      //check with database
 
       // some more delay, so users have time to read the message
       await this.timeout(2000)
