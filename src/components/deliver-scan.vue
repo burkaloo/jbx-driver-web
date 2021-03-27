@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="m-0">Last Scan: <span class="ms-2">{{scanResult}}</span></p>
+    <p class="mb-0 mt-2">Last Scan: <span class="ms-2">{{scanResult}}</span></p>
     <qrcode-stream :camera="camera" @decode="onDecode" @init="camInit">
       <div v-if="camera == 'off'" class="text-center overlay">
         <div v-if="error" class="px-2">
@@ -41,7 +41,8 @@ export default {
       scanResult: null,
       beep: new Audio('@/assets/beep.mp3'),
       error: false,
-      manual: ""
+      manual: "",
+      toggle: "scan"
     }
   },
   methods:{
@@ -86,6 +87,13 @@ export default {
       this.error =  false
       this.camera = "auto"
     },
+    triggertoggle(){
+      if(this.toggle == 'scan'){
+        this.toggle = "type"
+      } else{
+        this.toggle = "scan"
+      }
+    }
   }
 }
 </script>
