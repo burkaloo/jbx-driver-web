@@ -1,12 +1,12 @@
 <template>
   <div class="draw-container">
     <h3 class="m-0 text-center">Please Sign</h3>
-    <canvas id="signature"></canvas>
     <div>
       <button class="btn btn-success canvas-btn" @click="save">Save</button>
       <button class="btn btn-warning canvas-btn" @click="clear">Clear</button>
       <button class="btn btn-danger canvas-btn" @click="cancel">Cancel</button>
     </div>
+    <canvas id="signature"></canvas>
   </div>
 </template>
 
