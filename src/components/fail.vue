@@ -125,8 +125,8 @@ export default {
         }).then(function(){
           comp.modal = false
           comp.reason = ""
-          this.lat = 0
-          this.lon = 0
+          comp.lat = 0
+          comp.lon = 0
         })
       }
 
