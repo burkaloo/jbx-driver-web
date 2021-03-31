@@ -63,7 +63,7 @@ export default {
             var rowdata = response.data.response
             if(rowdata.length == 0){
               comp.error = "scaned package is not in database"
-            } else if(rowdata[0].status == 'transit'){
+            } else if(rowdata[0].status != 'transit'){
                 comp.error = "Package not marked for delivery."
             } else if(rowdata[0].status_ref != comp.driverId) {
                 comp.error = "Package assigned to different Driver"
