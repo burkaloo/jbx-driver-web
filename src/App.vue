@@ -4,6 +4,8 @@
     <home v-else-if="page == 'home'" @loadon="spinner = true" @loadoff="spinner = false" @page="gotopage" :baseurl="baseurl" :driverId="user"></home>
     <pickup v-else-if="page == 'pickup'" @loadon="spinner = true" @loadoff="spinner = false" @page="gotopage" :baseurl="baseurl" :driverId="user"/>
     <deliver v-else-if="page == 'deliver'" @page="gotopage" :baseurl="baseurl" :driverId="user" @loadon="spinner = true" @loadoff="spinner = false"/>
+    <fail v-else-if="page == 'fail'" @page="gotopage" :baseurl="baseurl" :driverId="user" @loadon="spinner = true" @loadoff="spinner = false"/>
+    <ret v-else-if="page == 'ret'" @page="gotopage" :baseurl="baseurl" :driverId="user" @loadon="spinner = true" @loadoff="spinner = false"/>
   </div>
 
   <modal v-if="spinner">
@@ -24,6 +26,8 @@ import modal from '@/components/modal.vue'
 import home from '@/components/home.vue'
 import pickup from '@/components/pickup.vue'
 import deliver from '@/components/deliver.vue'
+import fail from '@/components/fail.vue'
+import ret from '@/components/ret.vue'
 
 
 //import axios from 'axios'
@@ -31,7 +35,7 @@ import deliver from '@/components/deliver.vue'
 export default {
   name: 'App',
   components: {
-    login, modal, home, pickup, deliver
+    login, modal, home, pickup, deliver, fail, ret
   },
   data(){
     return{

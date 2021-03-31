@@ -17,15 +17,17 @@
       </div>
     </div>
     <div class="row row-cols-2">
-      <div class="col">
-        <div class="d-grid gap-2">
-          <button class="btn btn-primary btn-xlg" type="button" @click="$emit('page', 'pickup')">Pickup</button>
-        </div>
+      <div class="col mb-2">
+          <button class="btn btn-primary btn-xlg w-100" type="button" @click="$emit('page', 'pickup')">Pickup</button>
       </div>
-      <div class="col">
-        <div class="d-grid gap-2">
-          <button class="btn btn-primary btn-xlg" type="button" @click="$emit('page', 'deliver')">Deliver</button>
-        </div>
+      <div class="col mb-2">
+          <button class="btn btn-primary btn-xlg w-100" type="button" @click="$emit('page', 'deliver')">Deliver</button>
+      </div>
+      <div class="col mb-2">
+          <button class="btn btn-primary btn-xlg w-100" type="button" @click="$emit('page', 'fail')">Fail</button>
+      </div>
+      <div class="col mb-2">
+          <button class="btn btn-primary btn-xlg w-100" type="button" @click="$emit('page', 'ret')">Return</button>
       </div>
     </div>
   </div>

@@ -6,8 +6,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
-        <div class="py-3">
+      <div class="col-12 py-3">
+        <div class="">
           <p class="m-0">Last Scan: <span class="ms-2">{{scanResult}}</span></p>
         </div>
         <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
@@ -23,6 +23,11 @@
             </div>
           </div>
         </qrcode-stream>
+        <label class="form-label mt-4">Manual Input</label>
+        <input class="form-control" type="text" v-model.trim="manual"/>
+        <div class="text-end pb-3">
+          <button class="btn btn-primary mt-3" @click="manualcheck">Check Package</button>
+        </div>
       </div>
     </div>
   </div>
@@ -43,7 +48,8 @@ export default {
       camera: 'auto',
       scanResult: null,
       beep: new Audio('@/assets/beep.mp3'),
-      error: false
+      error: false,
+      manual: ""
     }
   },
   props:{
@@ -77,6 +83,9 @@ export default {
     closeError(){
       this.error =  false
       this.camera = "auto"
+    },
+    manualcheck(){
+      this.onDecode(this.manual)
     }
   }
 }

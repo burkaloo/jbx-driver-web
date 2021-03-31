@@ -9,7 +9,7 @@
     </div>
     <div class="row py-3">
       <div class="col-12">
-        <scan v-if="stage == 'scan'" :baseurl="baseurl" :driverId="driverId" @details="gotodetails"/>
+        <retscan v-if="stage == 'scan'" :baseurl="baseurl" :driverId="driverId" @details="gotodetails"/>
         <drawpad v-else-if="stage == 'sig'" @img="savesig" @cancel="stage = 'details'"/>
         <div v-else-if="stage == 'details'">
         <div>
@@ -20,15 +20,13 @@
         </div>
         <hr>
         <div>
-          <label v-if="cod > 0" class="form-label">Cash Received:</label>
-          <input v-if="cod > 0" class="form-control mb-3" type="text" v-model.number ="amount"/>
           <label class="form-label">Receiver Name:</label>
           <input class="form-control mb-3" type="text" v-model.trim ="receiver"/>
           <button v-if="sig == null" class="btn btn-danger btn-block w-100" @click="getsig">Get Signiture</button>
           <button v-else class="btn btn-success w-100" @click="getsig">Repeat Signiture</button>
         </div>
         <hr>
-        <button class="btn btn-primary btn-lg w-100 mt-4" :disabled="delivercheck" @click="markdeliverd">Mark Delivered</button>
+        <button class="btn btn-primary btn-lg w-100 mt-4" :disabled="delivercheck" @click="markdeliverd">Mark Returned</button>
       </div>
     </div>
     </div>
@@ -39,19 +37,18 @@
 
 import axios from 'axios'
 import drawpad from '@/components/drawpad.vue'
-import scan from '@/components/deliver-scan.vue'
+import retscan from '@/components/retscan.vue'
 import modal from '@/components/modal.vue'
 
 export default {
   name: 'deliver',
   components:{
-    drawpad, scan, modal
+    drawpad, retscan, modal
   },
   data(){
     return {
       stage: 'scan',
       cod: 0,
-      amount: 0,
       r_name: "",
       r_company: "",
       shipid: "",
@@ -86,7 +83,7 @@ export default {
       this.$emit('loadon')
       let comp = this
       let reqerror = false
-      axios.post(this.baseurl + "/markdelivered.php", {
+      axios.post(this.baseurl + "/markreturn.php", {
         shipid: this.shipid,
         driverid: this.driverId,
         signature: this.sig,
@@ -119,7 +116,7 @@ export default {
   },
   computed:{
     delivercheck(){
-      if(this.amount == this.cod && this.receiver != "" && this.sig != null){
+      if(this.receiver != "" && this.sig != null){
         return false
       } else {
         return true
