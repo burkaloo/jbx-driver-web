@@ -110,7 +110,7 @@ export default {
         reqerror = error
       })
       .then(function(){
-        this.$emit('loadoff')
+        comp.$emit('loadoff')
         if(reqerror){
           comp.msg = reqerror
         }
