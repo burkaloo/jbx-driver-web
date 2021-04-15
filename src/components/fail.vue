@@ -34,12 +34,6 @@
       <div class="p-3">
         <h4>Reason for Failed Delivery:</h4>
         <div class="form-check">
-          <input class="form-check-input" type="radio" value="Customer not Responsive" v-model="reason">
-          <label class="form-check-label">
-            Address not Found
-          </label>
-        </div>
-        <div class="form-check">
           <input class="form-check-input" type="radio" value="Address not Found" v-model="reason">
           <label class="form-check-label">
             Address not Found
